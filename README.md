@@ -17,7 +17,7 @@ pip install rasa-x -i https://pypi.rasa.com/simple
 ```bash
 rasa train
 ```
-3. 启动自定义动作
+3. 启动自定义动作（此过程需要约30s）
 ```bash
 rasa run actions
 ```
