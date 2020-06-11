@@ -13,12 +13,10 @@ Rasa天气查询机器人
 ```bash
 pip install rasa-x -i https://pypi.rasa.com/simple
 ```
-
 2. 训练模型
 ```bash
 rasa train
 ```
-
 3. 启动自定义动作
 ```bash
 rasa run actions
