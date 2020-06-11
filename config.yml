@@ -1,0 +1,22 @@
+language: zh
+pipeline:
+  - name: JiebaTokenizer  # 结巴分词器
+    dictionary_path: 'data/dictionary_path/'
+  - name: RegexFeaturizer  # 正则表达式特征提取器
+  - name: LexicalSyntacticFeaturizer  # 词法语法特征提取器
+  - name: CountVectorsFeaturizer  # 词袋模型特征提取器
+  - name: DIETClassifier  # 意图分类和实体提取的双向转换器
+    epochs: 100
+  - name: "extractors.match_entity_extractor.MatchEntityExtractor"  # 绝对匹配实体提取器
+    dictionary_path: "data/dictionary_path/"
+    take_long: True
+  - name: EntitySynonymMapper  # 同义词匹配实体提取器
+
+policies:
+  - name: FormPolicy  # 表单策略，用于填充所需槽位
+#  - name: TwoStageFallbackPolicy  # 二阶回退策略，不直接回退而是让用户选，尝试消除输入歧义
+  - name: MemoizationPolicy  # 记忆策略，训练数据有的话以置信度1.0预测下一个动作
+  - name: MappingPolicy  # 映射策略，直接将意图映射到动作
+  - name: TEDPolicy  # 转换嵌入对话策略
+    max_history: 5
+    epochs: 100
