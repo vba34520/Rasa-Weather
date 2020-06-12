@@ -1,88 +1,74 @@
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
 intents:
-  - greet
-  - goodbye
-  - weather
-  - inform
-  - out_of_scope
-  - debug
-
+- greet
+- goodbye
+- weather
+- inform
+- out_of_scope
+- debug
 entities:
-  - city
-  - time
-
+- city
+- time
 slots:
   city:
     type: unfeaturized
   time:
     type: unfeaturized
-
 responses:
   utter_greet:
-    - text: "您好，小云能帮你查哪个城市的天气？"
-    - text: "我是天气查询机器人小云，你想查哪个城市的天气？"
-
-  utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-    - text: "Did that help you?"
-
-  utter_happy:
-    - text: "Great, carry on!"
-
+  - text: 您好，小云能帮你查哪个城市的天气？
+  - text: 我是天气查询机器人小云，你想查哪个城市的天气？
   utter_goodbye:
-    - text: "下次见~"
-    - text: "期待下次与您再会！"
-    - text: "小云很高兴为您服务！"
-
+  - text: 下次见~
+  - text: 期待下次与您再会！
+  - text: 小云很高兴为您服务！
   utter_city:
-    - text: {city}
-
+  - text: '{city}'
   utter_time:
-    - text: {time}
-
+  - text: '{time}'
   utter_ask_city:
-    - text: "查询城市？"
-    - text: "请问您在哪个城市？"
-    - text: "请问想查哪个城市？"
-    - text: "查哪个城市的天气？"
-
+  - text: 查询城市？
+  - text: 请问您在哪个城市？
+  - text: 请问想查哪个城市？
+  - text: 查哪个城市的天气？
   utter_ask_time:
-    - text: "查询时间？"
-      buttons:
-        - title: "今天"
-          payload: '/inform{"time": "今天"}'
-        - title: "明天"
-          payload: '/inform{"time": "明天"}'
-        - title: "后天"
-          payload: '/inform{"time": "后天"}'
-        - title: "大后天"
-          payload: '/inform{"time": "大后天"}'
-        - title: "大大后天"
-          payload: '/inform{"time": "大大后天"}'
-    - text: "请问想查哪一天？"
-      buttons:
-        - title: "今天"
-          payload: '/inform{"time": "今天"}'
-        - title: "明天"
-          payload: '/inform{"time": "明天"}'
-        - title: "后天"
-          payload: '/inform{"time": "后天"}'
-        - title: "大后天"
-          payload: '/inform{"time": "大后天"}'
-        - title: "大大后天"
-          payload: '/inform{"time": "大大后天"}'
-
+  - buttons:
+    - payload: '/inform{"time": "今天"}'
+      title: 今天
+    - payload: '/inform{"time": "明天"}'
+      title: 明天
+    - payload: '/inform{"time": "后天"}'
+      title: 后天
+    - payload: '/inform{"time": "大后天"}'
+      title: 大后天
+    - payload: '/inform{"time": "大大后天"}'
+      title: 大大后天
+    text: 查询时间？
+  - buttons:
+    - payload: '/inform{"time": "今天"}'
+      title: 今天
+    - payload: '/inform{"time": "明天"}'
+      title: 明天
+    - payload: '/inform{"time": "后天"}'
+      title: 后天
+    - payload: '/inform{"time": "大后天"}'
+      title: 大后天
+    - payload: '/inform{"time": "大大后天"}'
+      title: 大大后天
+    text: 请问想查哪一天？
 actions:
-  - action_hello_world
-  - action_debug
-  - utter_ask_city
-  - utter_ask_time
-
+- action_hello_world
+- action_debug
+- utter_ask_city
+- utter_ask_time
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_city
+- utter_time
 forms:
-  - city_time_form
+- city_time_form
