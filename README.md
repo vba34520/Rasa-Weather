@@ -25,6 +25,3 @@ rasa run actions
 ```bash
 rasa shell
 ```
-
-# TODO
-1. 对[Weather](https://github.com/vba34520/Weather)建立本地缓存机制，不用每次初始化几十秒
